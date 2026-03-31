@@ -1,0 +1,25 @@
+# Data (too large for git)
+data/raw/*.csv
+data/raw/*.zip
+data/raw/*.xlsx
+data/raw/weather/
+data/processed/*.csv
+data/processed/*.parquet
+
+# Autoresearch cache
+~/.cache/traffic_autoresearch/
+autoresearch/run.log
+autoresearch/autoresearch.log
+
+# Models (binary)
+results/models/*.joblib
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
