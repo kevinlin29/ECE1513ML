@@ -1,0 +1,29 @@
+experiment	test_mae	test_rmse	test_r2	status	description
+1-baseline	2.245966	3.418483	0.891034	keep	XGBoost baseline (lr=0.05 depth=6)
+2-lr-trees	2.243108	3.415472	0.891226	keep	lower LR 0.03 + 3000 trees
+3-depth8	2.228667	3.413784	0.891334	keep	increase depth to 8
+4-depth10	2.230720	3.418753	0.891017	discard	depth 10 overfit
+5-mcw3	2.232418	3.417104	0.891122	discard	min_child_weight=3
+6-strongreg	2.231820	3.408751	0.891654	discard	reg_alpha=0.5 reg_lambda=3
+7-features	2.203648	3.371892	0.892740	keep	rush hour flags + lag 12/16
+8-leakage	0.309395	0.598870	0.996617	crash	speed_x_volume leaked target
+9-interaction	2.152938	3.314349	0.896369	keep	lagged speed x volume interaction
+10-seasonal	2.156369	3.322449	0.895862	discard	month cyclical + week_of_year
+11-slowlr	2.144013	3.307611	0.896790	keep	LR=0.01 + 10k trees
+12-veryslow	2.146908	3.307060	0.896825	discard	LR=0.005 too slow
+13-gamma	2.146837	3.307980	0.896767	discard	gamma=0.1
+14-subsamp	2.145876	3.308849	0.896713	discard	subsample/colsample 0.9
+15-filter72h	2.082000	3.231178	0.903232	keep	filter locations < 72h data
+16-evalmae	2.073190	3.228357	0.903401	keep	eval_metric=mae
+17-maeloss	2.021437	3.225856	0.903551	keep	MAE loss objective
+18-xgb-final	2.017612	3.220315	0.903882	keep	LR=0.008 + 15k trees (best XGBoost)
+19-mlp	1.930743	3.120081	0.909772	keep	PyTorch MLP (512-256-128) GPU
+20-wider-mlp	1.899976	3.107426	0.910503	keep	wider MLP (1024-512-256-128)
+21-resnet	1.847986	3.091498	0.911418	keep	ResNet-style MLP with skip connections
+22-deviation	1.842215	3.102924	0.910762	keep	predict speed_deviation as target
+23-embed-cold	2.032454	3.301658	0.898965	discard	entity embeddings (underfitting)
+24-onecycle	1.855367	3.104409	0.910677	discard	OneCycleLR (worse than plateau)
+25-ensemble	1.848684	3.089327	0.911542	discard	XGB+MLP ensemble (90/10)
+26-catboost	2.166924	3.386010	0.893736	discard	CatBoost GPU
+27-data2025	1.829643	3.050568	0.917308	keep	added 2025 speed data (+370K rows)
+28-silu	1.825456	3.054567	0.917091	keep	SiLU activation (best overall)

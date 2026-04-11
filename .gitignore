@@ -1,0 +1,31 @@
+# Data files (too large for git)
+*.csv
+*.parquet
+*.zip
+*.xlsx
+
+# Model files
+*.pkl
+*.pt
+*.joblib
+
+# catboost
+catboost_info/
+
+# macOS junk
+__MACOSX/
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Autoresearch
+autoresearch/
+traffic-congestion-dvp/autoresearch/
